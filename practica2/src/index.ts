@@ -6,4 +6,6 @@ console.log(miNumero);
 
 let booleano : boolean = true;
 booleano = false;
-booleano = 
+
+
+let encendido:boolean;

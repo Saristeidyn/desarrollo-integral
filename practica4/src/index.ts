@@ -43,3 +43,17 @@ console.log(firstName);
 
 
 
+// Fibonacci Series
+function fibonacciSeries(n: number): number[] {
+    const series: number[] = [0, 1];
+
+    for (let i = 2; i < n; i++) {
+        const nextNumber = series[i - 1] + series[i - 2];
+        series.push(nextNumber);
+    }
+
+    return series;
+}
+
+const fibSeries = fibonacciSeries(10);
+console.log(fibSeries);

@@ -77,3 +77,24 @@ for (let i:number = 0; i < numerosCadena.length; i++) {
 
 let miArray:(string|number) [] = ['carlos', 24, 'sar', 20];
 console.log(miArray);
+
+// i dont understand this sorry teacher. I'll get there
+let htmlContent = '';
+const miArray6 = [
+    '<img src="img/img1.png" alt="Image 1">',
+    '<img src="img/img2.png" alt="Image 2">'
+];
+
+miArray6.forEach(item => {
+    if (typeof item === 'string' && item.includes('<img')) {
+        const figureHTML = `
+            <figure>
+                ${item}
+                <figcaption>Frutas de fondo</figcaption>
+            </figure>
+        `;
+        htmlContent += figureHTML + '<br>';
+    } else {
+        console.log(item);
+    }
+});

@@ -52,7 +52,6 @@ console.log(antiHero.toLocaleUpperCase());
 
 let vengador:any;
 vengador = 'Dr. Strange';
-console.log(vengador.chartAt(0));
 vengador = 150.55;
 console.log(vengador.toFixed(1));
 console.log((vengador as number).toFixed(1));

@@ -27,3 +27,9 @@ var nombreCompleto3 = function (nombre, apellido, mayusculas) {
 };
 var tuNombre3 = nombreCompleto3("saray", "martinez", true);
 console.log(tuNombre3);
+var nombreCompleto4 = function (nombre, edad, mayusculas) {
+    if (mayusculas === void 0) { mayusculas = false; }
+    return "".concat(nombre || 'sin nombre', " ").concat(edad || 'sin apellido');
+};
+var tuNombre4 = nombreCompleto4("saray", 22, true);
+console.log(tuNombre4);

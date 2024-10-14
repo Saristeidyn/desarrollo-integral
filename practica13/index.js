@@ -1,3 +1,33 @@
+const express = require('express');
+const fs = require('fs');
+const app = express();
+const port = 3000;
+
+app.use(express.static('public')); // To serve static files (like HTML, CSS, and JS)
+
+// Route to get the directory structure
+app.get('/directory', (req, res) => {
+    fs.readdir('./', { withFileTypes: true }, (err, files) => {
+        if (err) {
+            return res.status(500).send('Error reading directory');
+        }
+
+        // Map through files and directories to identify type
+        const fileList = files.map(file => ({
+            name: file.name,
+            type: file.isDirectory() ? 'directory' : 'file'
+        }));
+
+        res.json(fileList); // Send the list as JSON
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+
+
+/*
 //File system
 const fs = require('fs');
 //console.log(fs);
@@ -93,3 +123,4 @@ const moverArchivo = (err) => {
 }
 
 fs.rename('./copiaArchivo.txt', './copiaArchivo2.txt', moverArchivo);
+*/

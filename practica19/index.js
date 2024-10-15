@@ -1,0 +1,52 @@
+
+const express = require('express');
+const app = express();
+
+//View engine es un motor de plantillas que permite renderizar vistas
+// Usaremos el motor de plantillas EJS
+// para instalr EJS: npm install ejs
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+
+    const blogs =[
+        {titulo: 'Articulo1', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
+        {titulo: 'Articulo2', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
+        {titulo: 'Articulo3', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
+        {titulo: 'Articulo4', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
+        {titulo: 'Articulo5', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
+        {titulo: 'Articulo6', autor: 'Saray Mart', contenido: 'Lorem Ipsum'}
+    ];
+
+   // res.sendFile( __dirname + '/views/inicio.html');
+
+   res.render('inicio', { titulo: 'INICIO Nuevo', blogs });
+
+});
+ 
+app.get('/nosotros', (req, res) => {
+    res.sendFile(__dirname + '/views/nosotros.html');
+}   );
+ 
+app.get('/productos', (req, res) => {
+    res.sendFile(__dirname + '/views/productos.html');
+});
+ 
+app.get('/contacto', (req, res) => {
+    res.redirect('/nosotros');
+});
+ 
+ 
+// Middleware para manejar errores 404
+app.use((req, res) => {
+    res.status(404).sendFile(__dirname + '/views/404.html');
+});
+ 
+ 
+ 
+ 
+ 
+ 
+app.listen(3000, () => {
+    console.log("Servidor activo en el puerto 3000")
+});

@@ -55,11 +55,51 @@ console.log(result);
 // Crear un arreglo con 100 números aleatorios y mostrar los números pares
 // y los números impares en arreglos diferentes
  
+const _ = require('lodash');
+
+// Generar un arreglo con 100 números aleatorios entre 0 y 100
+let randomNumbers = _.times(100, () => _.random(0, 100));
+
+// Filtrar los números pares e impares
+let evenNumbers = _.filter(randomNumbers, num => num % 2 === 0);
+let oddNumbers = _.filter(randomNumbers, num => num % 2 !== 0);
+
+console.log("Números pares:", evenNumbers);
+console.log("Números impares:", oddNumbers);
+
 //Reto 2
 // Crear un arreglo con 100 números aleatorios y mostrar los números primos
 // y los números no primos en arreglos diferentes
- 
+ // Función para verificar si un número es primo
+const esPrimo = (num) => {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+};
+
+// Generar un arreglo con 100 números aleatorios entre 0 y 100
+let randomNumbers2 = _.times(100, () => _.random(0, 100));
+
+// Filtrar los números primos y no primos
+let primeNumbers = _.filter(randomNumbers2, esPrimo);
+let nonPrimeNumbers = _.filter(randomNumbers2, num => !esPrimo(num));
+
+console.log("Números primos:", primeNumbers);
+console.log("Números no primos:", nonPrimeNumbers);
+
 //Reto 3
 // Crear un arreglo de nombres y mostrar los nombres que empiecen con la letra 'A'  
 // y los nombres que no empiecen con la letra 'A' en arreglos diferentes
- 
+ // Arreglo de nombres
+let names = ['Ana', 'Pedro', 'Alberto', 'Juan', 'Alicia', 'María', 'Andrés', 'Carla'];
+
+// Filtrar los nombres que empiezan con 'A'
+let namesStartingWithA = _.filter(names, name => _.startsWith(name, 'A'));
+
+// Filtrar los nombres que no empiezan con 'A'
+let namesNotStartingWithA = _.filter(names, name => !_.startsWith(name, 'A'));
+
+console.log("Nombres que empiezan con 'A':", namesStartingWithA);
+console.log("Nombres que no empiezan con 'A':", namesNotStartingWithA);

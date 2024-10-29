@@ -9,15 +9,6 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
 
-    const blogs =[
-        {titulo: 'Articulo1', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
-        {titulo: 'Articulo2', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
-        {titulo: 'Articulo3', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
-        {titulo: 'Articulo4', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
-        {titulo: 'Articulo5', autor: 'Saray Mart', contenido: 'Lorem Ipsum'},
-        {titulo: 'Articulo6', autor: 'Saray Mart', contenido: 'Lorem Ipsum'}
-    ];
-
    // res.sendFile( __dirname + '/views/inicio.html');
 
    res.render('inicio', { titulo: 'INICIO Nuevo', blogs });
@@ -41,11 +32,6 @@ app.get('/contacto', (req, res) => {
 app.use((req, res) => {
     res.status(404).sendFile(__dirname + '/views/404.html');
 });
- 
- 
- 
- 
- 
  
 app.listen(3000, () => {
     console.log("Servidor activo en el puerto 3000")

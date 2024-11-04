@@ -10,12 +10,12 @@ const client = new MongoClient(uri)
 async function run() {
     try {
       await client.connect();
-      const db = client.db('saray78544');
+      const db = client.db('saray437933');
       //const collection = db.collection('articulos');
   
       // Find the first document in the collection
-      const articulo = await collection(`articulos`).findOne();
-      console.log(articulo.title);
+      const articulo = await db.collection(`articulos`).findOne();
+      console.log(articulo.titulo);
     } finally {
       // Close the database connection when finished or an error occurs
       await client.close();
